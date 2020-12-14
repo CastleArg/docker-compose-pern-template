@@ -1,0 +1,27 @@
+openapi: "3.0.2"
+info:
+  title: Welcome to PERN stack template!
+  version: "1.0"
+servers:
+  - url: "/api"
+paths:
+  /messages:
+    get:
+      summary: returns some messages if it works on your machine!
+      description: |
+        a simple route that will hit the db and return some messages.
+
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    message:
+                      type: string
