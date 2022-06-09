@@ -10,7 +10,7 @@ const messageRouter = require("./routes/messageRouter");
 const swaggerDocument = yaml.safeLoad(
     fs.readFileSync(path.join(__dirname, "./openapi.yaml"), "utf8")
 );
-console.log(process.env);
+
 //middleware
 app.use(cors());
 app.use(express.json());
