@@ -7,7 +7,7 @@ const yaml = require("js-yaml");
 const fs = require("fs");
 const swaggerUi = require("swagger-ui-express");
 const messageRouter = require("./routes/messageRouter");
-const swaggerDocument = yaml.safeLoad(
+const swaggerDocument = yaml.load(
     fs.readFileSync(path.join(__dirname, "./openapi.yaml"), "utf8")
 );
 
