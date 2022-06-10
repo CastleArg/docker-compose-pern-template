@@ -1,7 +1,13 @@
-const db = require("../db");
+const Message = require('../models/Message');
+const {connect} = require('../db');
+connect();
 module.exports = {
     getMessages: async () => {
-        const result = await db.query("SELECT id, message from message");
-        return result.rows;
+        try {
+        const result = await Message.find();
+        return result;
+        } catch (e) {
+            console.error(e);
+        }
     }
 }

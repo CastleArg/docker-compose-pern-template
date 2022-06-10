@@ -1,14 +1,20 @@
-const { Pool } = require("pg");
-var types = require('pg').types
-//pg won't cast by default as may lose precision.
-types.setTypeParser(1700, function (val) {
-    return parseFloat(val)
-});
 
-const pool = new Pool();
+const mongoose = require('mongoose');
 
-module.exports = {
-    query: (text, params, callback) => {
-        return pool.query(text, params, callback);
-    },
-};
+
+const connect = () => {
+    // connect to mongo
+    mongoose.connect(process.env.MONGODB_CONNSTRING, (err) => {
+        if (err) {
+            return console.error(err)
+        }
+        console.log('connected to Mongo!!')
+    })
+}
+
+
+const disconnect = () => {
+    mongoose.disconnect();
+}
+
+module.exports = { connect, disconnect }

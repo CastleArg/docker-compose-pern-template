@@ -1,4 +1,6 @@
-FROM postgres:14-alpine
-ENV POSTGRES_PASSWORD=password
-COPY ./sql/ /docker-entrypoint-initdb.d/
+FROM mongo:5.0.9-focal
+#ENV MONGO_INITDB_DATABASE=database
+#ENV MONGO_INITDB_ROOT_USERNAME=username
+#ENV MONGO_INITDB_ROOT_PASSWORD=password
+COPY ./init-scripts/ /docker-entrypoint-initdb.d/
 

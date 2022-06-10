@@ -19,11 +19,7 @@ services:
             - '5001:5000'
             - '9229:9229'
         environment: 
-            - PGDATABASE=postgres
-            - PGHOST=db
-            - PGUSER=postgres
-            - PGPASSWORD=password
-            - PGPORT=5432
+            - MONGODB_CONNSTRING=mongodb://db/messages
         depends_on: 
             - db
         volumes: 
@@ -33,8 +29,8 @@ services:
         build: 
             context: ./db
         volumes: 
-            - db-volume:/var/lib/postgresql/data
+            - db-volume:/var/lib/mongo/data
         ports:
-            - '5455:5432'
+            - '27017:27017'
 volumes: 
     db-volume:
