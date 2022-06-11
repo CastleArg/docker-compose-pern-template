@@ -12,20 +12,17 @@ services:
         volumes:
             - ./client:/app/
             - /app/node_modules
-        entrypoint: npm start
+        entrypoint: npm test -- --detectOpenHandles
     server: 
         build: 
             context: ./server
-        ports: 
-            - '5001:5000'
-            - '9229:9229'
         environment: 
             - PGDATABASE=postgres
             - PGHOST=db
             - PGUSER=postgres
             - PGPASSWORD=password
             - PGPORT=5432
-        entrypoint: npm start
+        entrypoint: npm test
         depends_on: 
             - db
         volumes: 
@@ -33,10 +30,8 @@ services:
             - /app/node_modules
     db: 
         build: 
-            context: ./db
+            context: ./test-db
         volumes: 
-            - db-volume:/var/lib/postgresql/data
-        ports:
-            - '5455:5432'
+            - db-test-volume:/var/lib/postgresql/data
 volumes: 
-    db-volume:
+    db-test-volume:

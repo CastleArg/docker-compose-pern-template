@@ -20,6 +20,6 @@ app.use("/api/messages", messageRouter)
 app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const port = process.env.EXPRESS_PORT || 5000;
-app.listen(port, () => {
+module.exports = app.listen(port, () => {
     console.log(`server has started on port ${port}`);
 });

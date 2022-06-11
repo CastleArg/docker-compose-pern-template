@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon --inspect=0.0.0.0:9229 index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "castleArg",
   "license": "GNU",
@@ -17,6 +17,7 @@
     "jest": "^28.0.0",
     "js-yaml": "^4.0.0",
     "pg": "^8.5.1",
+    "supertest": "^6.2.3",
     "swagger-ui-express": "^4.1.5"
   },
   "devDependencies": {
