@@ -1,3 +1,4 @@
+Check out the other branches for various other stacks.
 Setup any desired sql scripts in sql folder
 
 To Run:
