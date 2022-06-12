@@ -1,0 +1,8 @@
+<div>
+    <ul *ngIf="messages$ | async as messages else noData">
+        <li *ngFor="let message of messages">
+            {{message.message}}
+        </li> 
+    </ul>
+    <ng-template #noData>No Data Available</ng-template>
+</div>
