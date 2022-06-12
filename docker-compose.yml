@@ -4,15 +4,15 @@ services:
         build: 
             context: ./client
         ports: 
-            - '3333:3000'
+            - '8080:8080'
         environment: 
-            - REACT_APP_API_URL=http://localhost:5001/api
+            - VUE_APP_API_URL=http://localhost:5001/api
         depends_on: 
             - server
         volumes:
             - ./client:/app/
             - /app/node_modules
-        entrypoint: npm start
+        entrypoint: npm run serve
     server: 
         build: 
             context: ./server
