@@ -3,7 +3,7 @@ const app = require('../../index')
 describe('Messages endpoint', () => {
   it('should display messages from db on get request', async () => {
     // arrange 
-    const expected = [{id: 1 , message: `Don't panic`}, {id:2, message: 'the tests work on your machine'}]
+    const expected = [{id: 1 , message: `Don't panic`}, {id:2, message: 'the tests work on your machine'}, {id:3, message: 'db is postgres.'}]
 
     // act
     const res = await request(app)
